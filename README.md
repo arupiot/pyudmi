@@ -26,23 +26,32 @@ They perform data validation against the published version 1 UDMI json schemas o
 
 ### Serialisation
 
-Uniform serialisation to the udmi string format from object orientated interface
+Uniform serialisation to the udmi json format from object orientated interface.
 
 ### Timestamps
 
-There's a methods that serialises timestamps given in python datetime format correctly
+There's a method that serialises timestamps given in python datetime format correctly.
+
+## Installation
+
+```python
+pip install pyudmi
+```
 
 ## Usage
 
 You can create these objects in two ways. Each class has a normal Python constructor to make programatic creation easier eg:
 
 ```python
-config = udmi.Config(timestamp: (str, datetime), system: dict, pointset: dict=None, gateway: dict=None, version=DEFAULT_UDMI_VERSION)
+import udmi
+
+config = udmi.Config(timestamp, system, pointset, gateway)
 ```
  
 And a class method common to them all:
 
 ```python
+
 config = udmi.Config.from_string(udmi_string)
 ```
 
