@@ -4,24 +4,25 @@ import pytz
 import datetime
 import fastjsonschema
 import requests
+import udmi
 
 DEFAULT_UDMI_VERSION = 1
 
 VALIDATORS = {}
-SCHEMATA_DIR = "https://raw.githubusercontent.com/faucetsdn/daq/master/schemas/udmi/"
+SCHEMATA_DIR = os.path.join(os.path.dirname(udmi.__file__), "schemata", "daq", "schemas", "udmi")
 
 
 def get_path(uri):
     parts = uri.split(":")
-    return "%s%s" % (SCHEMATA_DIR, parts[1])
+    return "%s:%s/%s" % (parts[0], SCHEMATA_DIR, parts[1])
 
 
 def get_validator(name):
     validator = VALIDATORS.get(name)
     if validator is None:
-        url = os.path.join(SCHEMATA_DIR, name)
-        rsp = requests.get(url)
-        schema = json.loads(rsp.content)
+        file_path = os.path.join(SCHEMATA_DIR, name)
+        with open(file_path, "r") as f:
+            schema = json.loads(f.read())
         handlers = {"file": get_path}
         validator = fastjsonschema.compile(schema, handlers=handlers)
         VALIDATORS[name] = validator
