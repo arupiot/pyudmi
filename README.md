@@ -2,13 +2,12 @@
 
 ## Intro
 
-This is a set of classes to help when working with UDMI. See https://github.com/faucetsdn/daq/blob/master/schemas/udmi/README.md
+This is a set of classes to help when working with UDMI. See https://github.com/faucetsdn/udmi/blob/master/README.md
 
 There are currently seven classes representing the corresponding UDMI types:
 
 - Config
-- Discovery
-- LogEntry
+- Discover
 - MetaData
 - Pointset
 - Properties
