@@ -4,6 +4,14 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "additionalProperties": false,
   "properties": {
+    "config_etag": {
+      "type": "string",
+      "maxLength": 32
+    },
+    "state_etag": {
+      "type": "string",
+      "maxLength": 32
+    },
     "sample_limit_sec": {
       "type": "number",
       "minimum": 1,
@@ -20,7 +28,10 @@
         "^[a-z][a-z0-9]*(_[a-z0-9]+)*$": {
           "additionalProperties": false,
           "properties": {
-            "force_value": {
+            "ref": {
+              "type": "string"
+            },
+            "set_value": {
               "type": ["number", "string", "boolean"]
             }
           }

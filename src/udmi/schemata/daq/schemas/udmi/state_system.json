@@ -7,6 +7,9 @@
     "make_model": {
       "type": "string"
     },
+    "serial_no": {
+      "type": "string"
+    },
     "auth_key": {
       "type": "object",
       "additionalProperties": false,
@@ -43,13 +46,14 @@
       "additionalProperties": false,
       "patternProperties": {
         "^[a-z][a-z0-9]*(_[a-z0-9]+)*$": {
-          "$ref": "file:logentry.json#/definitions/report"
+          "$ref": "file:common.json#/definitions/entry"
         }
       }
     }
   },
   "required": [
     "make_model",
+    "serial_no",
     "firmware",
     "operational"
   ]
