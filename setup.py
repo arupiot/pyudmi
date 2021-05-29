@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='pyudmi',
-    version='0.0.3',
+    version='0.0.6',
     url='https://github.com/arupiot/pyudmi.git',
     author='Paul Harter',
     author_email='paul@glowinthedark.co.uk',
